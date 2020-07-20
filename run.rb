@@ -29,7 +29,7 @@ def run
             follower_name = gets.chomp
             puts "What do you want your username to be?"
             follower_user_name = gets.chomp
-            follower = Follower.new(follower_name, follow_user_name)
+            follower = Follower.new(follower_name, follower_user_name)
             run
         else
             puts "Try again!"
