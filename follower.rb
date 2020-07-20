@@ -1,10 +1,11 @@
 class Follower
-    attr_accessor :name
+    attr_accessor :name, :user_name
 
     @@all = []
 
-    def initialize(name)
+    def initialize(name, user_name)
         @name = name
+        @user_name = user_name
         save
     end
 

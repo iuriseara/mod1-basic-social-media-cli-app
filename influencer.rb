@@ -12,9 +12,18 @@ class Influencer
         @@all
     end
 
-    def followers
-        
+    def follows
+        Follow.all.select{|follow| follow.influencer == self}
     end
+
+    def followers
+        self.follows.map{|follow| follow.follower}
+    end
+
+    def follower_count 
+        self.followers.count
+    end
+
 
     private
 
@@ -22,7 +31,4 @@ class Influencer
         @@all << self 
     end
 
-    def follows
-        Follow.all.select{|follow| follow.influencer == self}
-    end
 end
