@@ -13,6 +13,14 @@ class Follower
         @@all
     end
 
+    def follows
+        Follow.all.select{|follow| follow.follower == self}
+    end
+
+    def influencers
+        self.follows.map{|follow| follow.influencer}
+    end
+
     private
 
     def save
