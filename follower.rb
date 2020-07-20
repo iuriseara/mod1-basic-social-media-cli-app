@@ -1,4 +1,5 @@
 class Follower
+    #You can change your name
     attr_accessor :name, :user_name
 
     @@all = []
@@ -19,6 +20,11 @@ class Follower
 
     def influencers
         self.follows.map{|follow| follow.influencer}
+    end
+
+    
+    def likes
+        Like.all.select{|like| like.follower == self}
     end
 
     private

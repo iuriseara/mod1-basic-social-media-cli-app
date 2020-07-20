@@ -1,4 +1,5 @@
 class Influencer
+    #You can change your name
     attr_accessor :name
 
     @@all = []
@@ -24,11 +25,21 @@ class Influencer
         self.followers.count
     end
 
+    def posts
+        Post.all.select{|post| post.influencer == self}
+    end
+
+    def likes
+        Like.all.select{|like| self.posts.include?(like.post)}
+    end 
+
+    def total_likes
+        self.likes.count 
+    end
 
     private
 
     def save
         @@all << self 
     end
-
 end
